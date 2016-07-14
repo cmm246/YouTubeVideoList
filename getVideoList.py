@@ -223,6 +223,7 @@ def youtube_search(options):
                 video_result['snippet']['channelId'],
             ]
             videos.append(tmp)
+            #video_result['snippet']['channelId']
         # end for
     # end for
 
