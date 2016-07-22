@@ -129,8 +129,8 @@ def appendVideos(rows):
 
     discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?version=v4')
     service = discovery.build('sheets', 'v4', http=http, discoveryServiceUrl=discoveryUrl)
-    rangeName = 'Sheet1!A' + str(lastRow + 1) + ':E'
-    columnLength=5
+    rangeName = 'Sheet1!A' + str(lastRow + 1) + ':F'
+    columnLength=6
     data = {'values': [row[:columnLength] for row in rows]}
     service.spreadsheets().values().update(spreadsheetId=SPREADSHEET_ID, range=rangeName, body=data, valueInputOption='RAW').execute()
 # end def
@@ -221,9 +221,9 @@ def youtube_search(options):
                 (video_result['snippet']['publishedAt'])[0:10],
                 'https://www.youtube.com/watch?v=' + video_result['id'],
                 video_result['snippet']['channelId'],
+                video_result['snippet']['channelTitle'],
             ]
             videos.append(tmp)
-            #video_result['snippet']['channelId']
         # end for
     # end for
 
